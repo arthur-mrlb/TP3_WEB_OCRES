@@ -12,14 +12,14 @@ function start() {
     .then(function(response) {
       // Récupère la donnée d'une API
 
-      data = new Map();
-      data = response.data;
+      const data = response.data;
+      console.log(data);
 
       // On récupère l'information principale
-      const main = data.weather[0].main;
-      const description = data.weather[0].description;
-      const temp = data.main.temp;
-      const icon = apiWeather.getHTMLElementFromIcon(data.weather[0].icon);
+      const main = data[0].weather[0].main;
+      const description = data[0].weather[0].description;
+      const temp = data[0].main.temp;
+      const icon = apiWeather.getHTMLElementFromIcon(data[0].weather[0].icon);
 
       // Modifier le DOM
       document.getElementById('today-forecast-main0').innerHTML = main;
